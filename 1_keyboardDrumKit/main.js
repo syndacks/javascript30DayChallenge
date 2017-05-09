@@ -6,7 +6,7 @@ function removeTransition(e){
 function playSound(e){
   const audio = $(`audio[data-key="${e.keyCode}"]`);
   const key = $(`.key[data-key="${e.keyCode}"]`);
-  if (!audio) return;
+  if (!audio[0]) return;
   key.addClass('playing');
   audio[0].currentTime = 0; //rewind to start
   audio[0].play();
