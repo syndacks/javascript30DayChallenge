@@ -1,0 +1,23 @@
+#background{
+  position:fixed;
+}
+
+#backgroundImage{
+  max-width: 100%;
+  height: auto;
+}
+
+.keys{
+  position: relative;
+  position: center;
+
+}
+
+.key{
+  border: solid;
+  margin-right: 10px;
+}
+
+.pressed{
+  border: solid, red, 5px;
+}
