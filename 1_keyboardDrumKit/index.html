@@ -9,21 +9,31 @@
 
   <body>
 
-    <audio id="thump" src="./sounds/thump.mp3"></audio>
-    <audio id="bop" src="./sounds/bop.mp3"></audio>
-    <audio id="scratch" src="./sounds/scratch.mp3"></audio>
-    <audio id="laser" src="./sounds/laser.mp3"></audio>
+    <audio data-key="65" src="./sounds/thump.mp3"></audio>
+    <audio data-key="83" src="./sounds/bop.mp3"></audio>
+    <audio data-key="68" src="./sounds/scratch.mp3"></audio>
+    <audio data-key="70" src="./sounds/laser.mp3"></audio>
 
-    <div id="background">
-      <img id="backgroundImage" src="http://astralpeople.com/wp-content/uploads/2015/11/mister-saturday-night-3.jpg"></img>
-
-      <div class="keys">
-        <kbd class='key' id="a">A</kbd>
-        <kbd class='key' id="s">S</kbd>
-        <kbd class='key' id="d">D</kbd>
-        <kbd class='key' id="f">F</kbd>
+    <div class="keys">
+      <div data-key="65" class="key">
+        <kbd>A</kbd>
+        <span class="sound">thump</span>
       </div>
 
+      <div data-key="83" class="key">
+        <kbd>S</kbd>
+        <span class="sound">bop</span>
+      </div>
+
+      <div data-key="68" class="key">
+        <kbd>D</kbd>
+        <span class="sound">scratch</span>
+      </div>
+
+      <div data-key="70" class="key">
+        <kbd>F</kbd>
+        <span class="sound">laser</span>
+      </div>
     </div>
 
   </body>

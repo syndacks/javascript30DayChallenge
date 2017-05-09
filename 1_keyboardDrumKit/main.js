@@ -1,28 +1,37 @@
-function aPress(){
-  console.log("you pressed the a key");
-  $('#a').attr('class', 'pressed');
-  $('#thump')[0].play();
+function removeTransition(e){
+  if(e.propertyName!=='transform') return;
+  e.target.classList.remove('playing');
 }
 
-function sPress(){
-  console.log("you pressed the s key");
-  $('#bop')[0].play();
+function playSound(e){
+  const audio = $(`audio[data-key="${e.keyCode}"]`);
+  const key = $(`.key[data-key="${e.keyCode}"]`);
+  if (!audio) return;
+  key.addClass('playing');
+  audio[0].currentTime = 0; //rewind to start
+  audio[0].play();
 }
 
-function dPress(){
-  console.log("you pressed the d key");
-  $('#scratch')[0].play();
-}
+const keys = Array.from($('.key'));
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+$(window).on('keydown', playSound);
 
-function fPress(){
-  console.log("you pressed the f key");
-  $('#laser')[0].play();
-}
 
-$(document).on('keypress', function (e) {
-  console.log(e.which);
-  if(e.which===97){aPress();}
-  if(e.which===115){sPress();}
-  if(e.which===100){dPress();}
-  if(e.which===102){fPress();}
-});
+
+// // vanilla Javascript (no jQuery!)
+// function removeTransition(e) {
+//     if (e.propertyName !== 'transform') return;
+//     e.target.classList.remove('playing');
+//   }
+//
+// function playSound(e) {
+//   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+//   const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+//   if (!audio) return;
+//   key.classList.add('playing');
+//   audio.currentTime = 0;
+//   audio.play();
+// }
+// const keys = Array.from(document.querySelectorAll('.key'));
+// keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+// window.addEventListener('keydown', playSound);
